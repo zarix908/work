@@ -84,6 +84,25 @@
 						}
 					</code></pre>
 				</section>
+				<section>
+					<h6>С помощью такого механизма можно</h6>
+					<ul>
+						<li>не следить за тем, какие данные нужно загрузить</li>
+						<li>не использовать state management для отслеживания загрузки данных</li>
+						<li>добавить дефолтный обработчик ошибок для всех запросов</li>
+					</ul>
+				</section>
+				<section>
+					<h6>Как реализовать</h6>
+					<ul>
+						<li>не сохранять загружаемые данные в глобальное состояние</li>
+						<li>Переработать ComponentLoader для работы с промисами</li>
+						<pre class="slide7_code"><code data-trim data-noescape class="slide7_code">
+						&lt;ComponentLoader renderChild={async() => ...await data...}&gt;
+						</code></pre>
+						<li>Удалить store, создать репозиторий</li>
+					</ul>
+				</section>
 			</div>
 		</div>
 
