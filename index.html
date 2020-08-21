@@ -31,9 +31,10 @@
 							class ViewModel {
 								private store: Store;
 								@observable public loading = false;
-								public constructor() {
+								public constructor() { this.init(); }
+								private async init() {
 									loading = true;
-									store.loadData();
+									await store.loadData();
 									loading = false;
 								}
 							}
