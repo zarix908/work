@@ -16,8 +16,74 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<img src="./images/1.png">
+				</section>
+				<section>
+					<div class="slide2_container">
+						<img src="./images/2.png" class="slide2_img">
+						<pre class="slide2_code"><code data-trim data-noescape>
+							class Store {
+								@observable public data;
+								public async loadData() {...}
+							}
+
+							class ViewModel {
+								private store: Store;
+								@observable public loading = false;
+								public constructor() {
+									loading = true;
+									store.loadData();
+									loading = false;
+								}
+							}
+							
+							@observer
+							class Component {
+								&lt;ComponentLoader 
+									renderChild={...data...}
+									isLoaded={loading}
+								&gt;
+							}
+						</code></pre>
+					</div>
+				</section>
+				<section>
+					<img src="./images/3.png">
+				</section>
+				<section>
+					<pre><code data-trim data-noescape>
+						class Loading {
+							@observable private data;
+
+							public static ComponentLoader(
+								render: (data) => React.Element
+							) {
+								return {... data ...}
+							}
+
+							public merge(
+								loadings: []Loading, 
+								mergeFunction: (data) => newData
+							): Loading {...}
+						}
+					</code></pre>
+				</section>
+				<section>
+					<pre><code data-trim data-noescape>
+						async function merge(promise1: Promise, promise2: Promise) {
+							const value1 = await promise1;
+							const value2 = await promise2;
+
+							return value1 + value2;
+						}
+
+						async function extract(promise: Promise) {
+							const data = await promise;
+							return data.subdata;
+						}
+					</code></pre>
+				</section>
 			</div>
 		</div>
 

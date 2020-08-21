@@ -1820,3 +1820,17 @@ $notesWidthPercent: 25%;
 @import 'print/pdf.scss';
 @import 'print/paper.scss';
 
+.slide2_container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.slide2_code {
+	flex: 0 1 10%;
+	height: 600px;
+}
+
+.slide2_img {
+	flex: 0 1 10%;
+	height: 300px;
+}
